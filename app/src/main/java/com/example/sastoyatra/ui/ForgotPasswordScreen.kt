@@ -20,6 +20,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONArray
 import org.json.JSONObject
 import android.util.Log
+import com.google.firebase.firestore.ktx.BuildConfig
 import kotlin.random.Random
 
 @Composable
@@ -32,8 +33,8 @@ fun ForgotPasswordScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
     val tag = "ForgotPassword"
 
-    // Replace with your SendGrid API key
-    val sendGridApiKey = "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\n" // Replace with your actual API key
+    val sendGridApiKey = BuildConfig.SENDGRID_API_KEY
+    // Replace with your actual API key
     val client = OkHttpClient()
 
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {

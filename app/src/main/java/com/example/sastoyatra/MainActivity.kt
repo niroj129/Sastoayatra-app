@@ -26,7 +26,15 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "provider_dashboard") {
+    val firebaseUser = Firebase.auth.currentUser
+
+    // Decide where to start
+    val startDestination = when {
+        firebaseUser == null -> "signup" // Not logged in yet
+        else -> "provider_dashboard"     // Default dashboard for now (can be role-based later)
+    }
+
+    NavHost(navController = navController, startDestination = startDestination) {
         composable("login") { LoginScreen(navController) }
         composable("signup") { SignupScreen(navController) }
         composable("pending_approval") { PendingApprovalScreen(navController) }
@@ -34,10 +42,16 @@ fun AppNavigation() {
         composable("provider_dashboard") { ProviderDashboardScreen(navController) }
         composable("admin_dashboard") { AdminDashboardScreen(navController) }
         composable("forgot_password") { ForgotPasswordScreen(navController) }
-        composable("verify_otp/{email}", arguments = listOf(navArgument("email") { type = NavType.StringType })) { backStackEntry ->
+        composable(
+            "verify_otp/{email}",
+            arguments = listOf(navArgument("email") { type = NavType.StringType })
+        ) { backStackEntry ->
             VerifyOTPScreen(navController, backStackEntry.arguments?.getString("email") ?: "")
         }
-        composable("reset_password/{email}", arguments = listOf(navArgument("email") { type = NavType.StringType })) { backStackEntry ->
+        composable(
+            "reset_password/{email}",
+            arguments = listOf(navArgument("email") { type = NavType.StringType })
+        ) { backStackEntry ->
             ResetPasswordScreen(navController, backStackEntry.arguments?.getString("email") ?: "")
         }
     }
