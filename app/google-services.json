@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "256970083447",
+    "project_id": "easypay-962f6",
+    "storage_bucket": "easypay-962f6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256970083447:android:554b862713fde927450a72",
+        "android_client_info": {
+          "package_name": "com.assignment.easypay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdy9Z0RAys9aqYfeFx-NNHvPClCsJDF08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256970083447:android:7d7e750e9a011dc0450a72",
+        "android_client_info": {
+          "package_name": "com.example.sastoyatra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdy9Z0RAys9aqYfeFx-NNHvPClCsJDF08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
